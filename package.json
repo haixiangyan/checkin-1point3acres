@@ -10,5 +10,11 @@
   },
   "repository": "git@github.com:Haixiang6123/checkin-1point3acres.git",
   "author": "Haixiang <haixiang6123@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^2.0.0"
+  }
 }

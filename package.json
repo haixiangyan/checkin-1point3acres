@@ -2,7 +2,12 @@
   "name": "checkin-1point3acres",
   "version": "1.0.0",
   "description": "一键签到一亩三分地",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "prod": "node dist/index.js"
+  },
   "repository": "git@github.com:Haixiang6123/checkin-1point3acres.git",
   "author": "Haixiang <haixiang6123@gmail.com>",
   "license": "MIT"

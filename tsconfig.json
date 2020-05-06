@@ -15,10 +15,8 @@
       "jest"
     ]
   },
-  "files": [
-    "index.ts"
-  ],
   "include": [
+    "index.ts",
     "db/**/*",
     "lib/**/*",
     "logic/**/*"

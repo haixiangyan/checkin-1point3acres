@@ -10,7 +10,7 @@ module.exports = {
   },
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/src/logic/**/*.ts',
+    '<rootDir>/logic/**/*.ts',
     "!**/node_modules/**"
   ],
   coverageReporters: ["html", "text-summary", "lcov"],

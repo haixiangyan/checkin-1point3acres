@@ -4,10 +4,10 @@
   "description": "一键签到一亩三分地",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "ts-node NODE_ENV=development src/index.ts",
+    "build": "tsc -p .",
+    "dev": "ts-node NODE_ENV=development index.ts",
     "prod": "node dist/index.js",
-    "test": "jest"
+    "test": "jest --no-cache --maxWorkers=1"
   },
   "repository": "git@github.com:Haixiang6123/checkin-1point3acres.git",
   "author": "Haixiang <haixiang6123@gmail.com>",

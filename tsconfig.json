@@ -12,12 +12,16 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "types": [
-      "@types",
       "jest"
     ]
   },
+  "files": [
+    "index.ts"
+  ],
   "include": [
-    "src"
+    "db/**/*",
+    "lib/**/*",
+    "logic/**/*"
   ],
   "exclude": [
     "node_modules"

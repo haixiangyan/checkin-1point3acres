@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer'
+import * as puppeteer from 'puppeteer'
 import {sleep} from './lib/tool'
 import {login} from './logic/auth'
 

@@ -1,16 +1,6 @@
-import puppeteer, {Page} from 'puppeteer'
-import {loginButton, passwordInput, usernameInput} from './lib/selectors'
+import puppeteer from 'puppeteer'
 import {sleep} from './lib/tool'
-
-const login = async (page: Page, username: string, password: string) => {
-  await page.focus(usernameInput)
-  await page.keyboard.type(username)
-
-  await page.focus(passwordInput)
-  await page.keyboard.type(password)
-
-  await page.click(loginButton)
-}
+import {login} from './logic/auth'
 
 (async () => {
   const browser = await puppeteer.launch()

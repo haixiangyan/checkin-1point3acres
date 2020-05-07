@@ -1,5 +1,5 @@
 import {Page} from 'puppeteer'
-import {autoModeRadioInput, checkinBtn, startCheckinAnchor, 开心} from '../constants/selectors'
+import {startCheckinAnchor} from '../constants/selectors'
 import {sleep} from '../lib/tool'
 import loading from '../lib/loading'
 import consola from 'consola'
@@ -11,16 +11,26 @@ const checkin = async (page: Page) => {
 
   // 开始签到
   await page.click(startCheckinAnchor)
-  await sleep(1000)
+  await sleep(2000)
 
-  // 选一个表情
-  await page.click(开心)
+  // 这里只能使用 evaluate
+  await page.evaluate(() => {
+    const 开心 = '#kx'
+    const autoModeRadioInput = '#qiandao > div > table.tfm > tbody > tr:nth-child(1) > td > label:nth-child(2)'
+    const checkinBtn = '#qiandao > p > button'
 
-  // 快速选择
-  await page.click(autoModeRadioInput)
+    // 选一个表情
+    // @ts-ignore
+    document.querySelector(开心).click()
 
-  // 签到
-  await page.click(checkinBtn)
+    // 快速选择
+    // @ts-ignore
+    document.querySelector(autoModeRadioInput).click()
+
+    // 签到
+    // @ts-ignore
+    document.querySelector(checkinBtn).click()
+  })
 }
 
 export default checkin

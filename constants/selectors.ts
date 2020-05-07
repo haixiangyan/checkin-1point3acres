@@ -5,7 +5,7 @@ export const loginButton = '#lsform > div > div.y.pns > table > tbody > tr:nth-c
 export const usernameSpan = '#um > p:nth-child(2) > strong'
 
 // 签到
-export const startCheckinAnchor = '#um > p:nth-child(3) > a:nth-child(3)'
+export const startCheckinAnchor = '#um > p > a[onclick]'
 
 export const 开心 = '#kx'
 export const 难过 = '#ng'

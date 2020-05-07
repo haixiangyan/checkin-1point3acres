@@ -7,7 +7,8 @@
     "build": "tsc -p .",
     "dev": "ts-node NODE_ENV=development index.ts",
     "prod": "node dist/index.js",
-    "test": "jest --no-cache --maxWorkers=1"
+    "test": "jest --no-cache --maxWorkers=1",
+    "coveralls": "coveralls < coverage/lcov.info"
   },
   "repository": "git@github.com:Haixiang6123/checkin-1point3acres.git",
   "author": "Haixiang <haixiang6123@gmail.com>",

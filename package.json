@@ -13,12 +13,16 @@
   "author": "Haixiang <haixiang6123@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "cli-spinners": "^2.3.0",
+    "consola": "^2.11.3",
     "inquirer": "^7.1.0",
+    "ora": "^4.0.4",
     "puppeteer": "^3.0.3"
   },
   "devDependencies": {
     "@types/inquirer": "^6.5.0",
     "@types/jest": "^25.2.1",
+    "@types/ora": "^3.2.0",
     "@types/puppeteer": "^2.0.0",
     "babel-jest": "^26.0.1",
     "coveralls": "^3.1.0",

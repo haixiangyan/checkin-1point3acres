@@ -1,6 +1,6 @@
 {
   "name": "checkin-1point3acres",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "一键签到一亩三分地",
   "main": "dist/index.js",
   "keywords": [
@@ -18,7 +18,6 @@
     "prod": "node dist/app.js",
     "dev": "NODE_ENV=development ts-node app.ts",
     "test": "jest --no-cache --maxWorkers=1",
-    "deploy": "yarn build && npm publish",
     "coveralls": "coveralls < coverage/lcov.info"
   },
   "repository": "git@github.com:Haixiang6123/checkin-1point3acres.git",

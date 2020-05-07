@@ -6,7 +6,8 @@ import consola from 'consola'
 
 const checkin = async (page: Page) => {
   if (await page.$(startCheckinAnchor) === null) {
-    return loading.stop() && consola.error('无法签到')
+    loading.stop() && consola.error('无法签到')
+    return process.exit(0)
   }
 
   // 开始签到

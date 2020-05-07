@@ -1,8 +1,9 @@
-import * as puppeteer from 'puppeteer'
+import puppeteer from 'puppeteer'
 import consola from 'consola'
 import {getUser, login} from './logic/auth'
 import checkin from './logic/checkin'
 import loading from './lib/loading'
+import {sleep} from './lib/tool'
 
 (async () => {
   // 启动浏览器
@@ -22,6 +23,7 @@ import loading from './lib/loading'
   loading.start('登录中')
   const {username, password} = await getUser()
   await login(page, username, password)
+  await sleep(3000)
   loading.stop()
   consola.success('登录成功')
 
@@ -30,6 +32,7 @@ import loading from './lib/loading'
   await checkin(page)
   loading.stop()
   consola.success('签到成功')
+  await sleep(3000)
 
   // 回答问题
 

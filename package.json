@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p .",
-    "dev": "ts-node NODE_ENV=development index.ts",
+    "dev": "NODE_ENV=development ts-node app.ts",
     "prod": "node dist/index.js",
     "test": "jest --no-cache --maxWorkers=1",
     "coveralls": "coveralls < coverage/lcov.info"

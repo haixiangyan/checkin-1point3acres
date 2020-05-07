@@ -13,33 +13,27 @@ import {initUserCache, sleep} from './lib/tool'
 
   // 启动浏览器
   loading.start('启动无头浏览器')
-  const browser = await puppeteer.launch()
+  const browser = await puppeteer.launch({defaultViewport: null})
   const page = await browser.newPage()
-  loading.stop()
-  consola.success('成功启动无头浏览器')
+  loading.stop() && consola.success('成功启动无头浏览器')
 
   // 访问一亩三分地
   loading.start('访问一亩三分地')
   await page.goto('https://www.1point3acres.com/bbs/')
-  loading.stop()
-  consola.success('成功访问一亩三分地主页')
+  loading.stop() && consola.success('成功访问一亩三分地主页')
 
   // 获取用户信息
   const {username, password} = await getUser()
 
   // 登录
-  loading.start('登录中')
   await login(page, username, password)
-  await sleep(3000)
-  loading.stop()
-  consola.success('登录成功')
+  loading.stop() && consola.success('登录成功')
 
   // 签到
   loading.start('开始签到')
   await checkin(page)
   await sleep(3000)
-  loading.stop()
-  consola.success('签到成功')
+  loading.stop() && consola.success('签到成功')
 
   // 回答问题
 

@@ -2,17 +2,9 @@ import * as fs from 'fs'
 import * as inquirer from 'inquirer'
 import {getUser} from '../../logic/auth'
 import {dotenvPath, userPath} from '../../constants/paths'
+import {clearUserCache, readJSONSync, writeJSONSync} from '../../lib/tool'
 
 jest.mock('inquirer')
-
-const emptyUser = {
-  username: null,
-  password: null
-}
-
-const clearUserCache = () => {
-  fs.writeFileSync(userPath, JSON.stringify(emptyUser))
-}
 
 beforeAll(() => {
   clearUserCache()
@@ -41,7 +33,7 @@ describe('getUser', () => {
 
     // 加入缓存的用户
     const mockUser = {username: 'CacheJack', password: '123'}
-    fs.writeFileSync(userPath, JSON.stringify(mockUser))
+    writeJSONSync(userPath, mockUser)
 
     const user = await getUser()
 
@@ -49,11 +41,11 @@ describe('getUser', () => {
     expect(user.password).toEqual(mockUser.password)
 
     // 还原缓存
-    fs.writeFileSync(userPath, JSON.stringify(emptyUser))
+    clearUserCache()
   })
   it('获取命令行输入的用户', async () => {
     // 置空用户
-    fs.writeFileSync(userPath, JSON.stringify(emptyUser))
+    clearUserCache()
 
     process.env.NODE_ENV = 'production'
 
@@ -69,7 +61,7 @@ describe('getUser', () => {
   })
   it('可以缓存用户', async () => {
     // 置空用户
-    fs.writeFileSync(userPath, JSON.stringify(emptyUser))
+    clearUserCache()
 
     process.env.NODE_ENV = 'production'
 
@@ -83,12 +75,12 @@ describe('getUser', () => {
     expect(user.username).toEqual(mockUser.username)
     expect(user.password).toEqual(mockUser.password)
 
-    const cacheUser = JSON.parse(fs.readFileSync(userPath, 'utf8'))
+    const cacheUser = readJSONSync(userPath)
 
     expect(cacheUser.username).toEqual(mockUser.username)
     expect(cacheUser.password).toEqual(mockUser.password)
 
     // 还原缓存
-    fs.writeFileSync(userPath, JSON.stringify(emptyUser))
+    clearUserCache()
   })
 })

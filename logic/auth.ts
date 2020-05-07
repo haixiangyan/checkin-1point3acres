@@ -4,13 +4,14 @@ import {Page} from 'puppeteer'
 import {loginButton, passwordInput, usernameInput} from '../constants/selectors'
 import {userPath} from '../constants/paths'
 import {userQuestion} from '../constants/questions'
+import {readJSONSync} from '../lib/tool'
 
 export type TUser = {
   username: string
   password: string
 }
 
-type TUserAnswer = TUser & {
+export type TUserAnswer = TUser & {
   saveCache: boolean
 }
 
@@ -35,7 +36,7 @@ export const getUser = async (): Promise<TUser> => {
   }
 
   // 读取缓存的用户
-  const cacheUser: TUser = JSON.parse(fs.readFileSync(userPath, 'utf8'))
+  const cacheUser: TUser = readJSONSync(userPath)
   if (cacheUser.username && cacheUser.password) {
     return cacheUser
   }

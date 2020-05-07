@@ -12,6 +12,7 @@
   "bin": {
     "checkin": "dist/app.js"
   },
+  "files": ["dist/**/*"],
   "scripts": {
     "build": "tsc -p .",
     "prod": "node dist/app.js",

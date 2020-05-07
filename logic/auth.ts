@@ -35,7 +35,7 @@ export const getUser = async (): Promise<TUser> => {
   }
 
   // 读取缓存的用户
-  const cacheUser: TUser = require(userPath)
+  const cacheUser: TUser = JSON.parse(fs.readFileSync(userPath, 'utf8'))
   if (cacheUser.username && cacheUser.password) {
     return cacheUser
   }

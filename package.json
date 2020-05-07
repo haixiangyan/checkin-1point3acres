@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "tsc -p .",
-    "prod": "node dist/app.js",
+    "start": "node dist/app.js",
     "dev": "NODE_ENV=development ts-node app.ts",
     "test": "jest --no-cache --maxWorkers=1",
     "coveralls": "coveralls < coverage/lcov.info"

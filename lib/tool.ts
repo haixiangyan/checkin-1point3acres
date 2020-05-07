@@ -1,4 +1,4 @@
-import fs from "fs"
+import fs from 'fs'
 import {userPath} from '../constants/paths'
 
 export const sleep = async (time: number) => {

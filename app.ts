@@ -1,6 +1,7 @@
 import * as puppeteer from 'puppeteer'
 import {sleep} from './lib/tool'
-import {login} from './logic/auth'
+import {getUser, login} from './logic/auth'
+import checkin from './logic/checkin'
 
 (async () => {
   const browser = await puppeteer.launch()
@@ -8,11 +9,16 @@ import {login} from './logic/auth'
 
   await page.goto('https://www.1point3acres.com/bbs/')
 
-  await login(page, 'username', 'password')
+  // 登录
+  const {username, password} = await getUser()
+  await login(page, username, password)
 
+  // 签到
+  await checkin()
   await sleep(3000)
 
-  await page.screenshot({path: 'example.png'});
+  // 回答问题
 
+  await page.screenshot({path: 'snapshot.png'});
   await browser.close()
 })()

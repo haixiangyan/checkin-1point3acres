@@ -40,15 +40,6 @@ export const login = async (page: Page, username: string, password: string) => {
 }
 
 export const getUser = async (): Promise<TUser> => {
-  // 测试
-  if (process.env.NODE_ENV === 'development') {
-    require('dotenv').config()
-    return {
-      username: process.env.USERNAME as string,
-      password: process.env.PASSWORD as string
-    }
-  }
-
   // 读取缓存的用户
   const cacheUser: TUser = readJSONSync(userPath)
   if (cacheUser.username && cacheUser.password) {

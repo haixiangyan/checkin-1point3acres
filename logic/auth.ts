@@ -2,7 +2,7 @@ import * as fs from 'fs'
 import * as inquirer from 'inquirer'
 import consola from 'consola'
 import {Page} from 'puppeteer'
-import {loginButton, passwordInput, startCheckinAnchor, usernameInput} from '../constants/selectors'
+import {loginButton, passwordInput, usernameInput, usernameSpan} from '../constants/selectors'
 import {userPath} from '../constants/paths'
 import {userQuestion} from '../constants/questions'
 import {readJSONSync, sleep} from '../lib/tool'
@@ -30,7 +30,7 @@ export const login = async (page: Page, username: string, password: string) => {
 
   await sleep(3000)
   // 登录失败
-  if (await page.$(startCheckinAnchor) === null) {
+  if (await page.$(usernameSpan) === null) {
     loading.stop() && consola.error('登录失败')
 
     const newUser = await askUser()

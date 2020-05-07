@@ -13,7 +13,10 @@ import {initUserCache, sleep} from './lib/tool'
 
   // 启动浏览器
   loading.start('启动无头浏览器')
-  const browser = await puppeteer.launch({defaultViewport: null})
+  const browser = await puppeteer.launch({
+    headless: process.env.NODE_ENV !== 'development',
+    defaultViewport: null
+  })
   const page = await browser.newPage()
   loading.stop() && consola.success('成功启动无头浏览器')
 

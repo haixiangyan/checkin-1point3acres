@@ -1,7 +1,7 @@
 import * as fs from 'fs'
 import * as inquirer from 'inquirer'
 import {Page} from 'puppeteer'
-import {loginButton, passwordInput, usernameInput} from '../constants/selectors'
+import {existAnchor, loginButton, passwordInput, usernameInput} from '../constants/selectors'
 import {userPath} from '../constants/paths'
 import {userQuestion} from '../constants/questions'
 import {readJSONSync} from '../lib/tool'
@@ -23,6 +23,8 @@ export const login = async (page: Page, username: string, password: string) => {
   await page.keyboard.type(password)
 
   await page.click(loginButton)
+
+  if (await page.$(existAnchor) === null) throw new Error('登录失败')
 }
 
 export const getUser = async (): Promise<TUser> => {

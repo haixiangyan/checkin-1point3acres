@@ -5,6 +5,15 @@ export const sleep = async (time: number) => {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+export const initUserCache = () => {
+  if (fs.existsSync(userPath)) return
+
+  writeJSONSync(userPath, {
+    username: null,
+    password: null
+  })
+}
+
 export const clearUserCache = () => {
   writeJSONSync(userPath, {
     username: null,

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc -p .",
     "dev": "NODE_ENV=development ts-node app.ts",
-    "prod": "node dist/index.js",
+    "prod": "node dist/app.js",
     "test": "jest --no-cache --maxWorkers=1",
     "coveralls": "coveralls < coverage/lcov.info"
   },

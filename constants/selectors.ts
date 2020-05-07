@@ -2,6 +2,7 @@
 export const usernameInput = '#ls_username'
 export const passwordInput = '#ls_password'
 export const loginButton = '#lsform > div > div.y.pns > table > tbody > tr:nth-child(3) > td:nth-child(2) > button'
+export const existAnchor = '#um > p:nth-child(3) > a:nth-child(5)'
 
 // 签到
 export const startCheckinAnchor = '#um > p:nth-child(3) > a:nth-child(3)'

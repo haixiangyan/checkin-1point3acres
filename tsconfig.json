@@ -16,7 +16,8 @@
     ]
   },
   "include": [
-    "index.ts",
+    "db/user.json",
+    "app.ts",
     "db/**/*",
     "lib/**/*",
     "logic/**/*"

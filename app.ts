@@ -3,9 +3,12 @@ import consola from 'consola'
 import {getUser, login} from './logic/auth'
 import checkin from './logic/checkin'
 import loading from './lib/loading'
-import {sleep} from './lib/tool'
+import {initUserCache, sleep} from './lib/tool'
 
 (async () => {
+  // 创建用户文件
+  initUserCache()
+
   // 启动浏览器
   loading.start('启动无头浏览器')
   const browser = await puppeteer.launch()
@@ -19,9 +22,11 @@ import {sleep} from './lib/tool'
   loading.stop()
   consola.success('成功访问一亩三分地主页')
 
+  // 获取用户信息
+  const {username, password} = await getUser()
+
   // 登录
   loading.start('登录中')
-  const {username, password} = await getUser()
   await login(page, username, password)
   await sleep(3000)
   loading.stop()
@@ -30,13 +35,13 @@ import {sleep} from './lib/tool'
   // 签到
   loading.start('开始签到')
   await checkin(page)
+  await sleep(3000)
   loading.stop()
   consola.success('签到成功')
-  await sleep(3000)
 
   // 回答问题
 
   // 关闭进程
-  await page.screenshot({path: 'snapshot.png'});
+  await page.screenshot({path: 'snapshot.png'})
   await browser.close()
 })()

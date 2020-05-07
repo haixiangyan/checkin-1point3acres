@@ -3,10 +3,19 @@
   "version": "1.0.0",
   "description": "一键签到一亩三分地",
   "main": "dist/index.js",
+  "keywords": [
+    "checkin",
+    "automation",
+    "cli",
+    "tool"
+  ],
+  "bin": {
+    "checkin": "dist/app.js"
+  },
   "scripts": {
     "build": "tsc -p .",
-    "dev": "NODE_ENV=development ts-node app.ts",
     "prod": "node dist/app.js",
+    "dev": "NODE_ENV=development ts-node app.ts",
     "test": "jest --no-cache --maxWorkers=1",
     "coveralls": "coveralls < coverage/lcov.info"
   },

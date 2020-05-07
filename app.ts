@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import puppeteer from 'puppeteer'
 import consola from 'consola'
 import {getUser, login} from './logic/auth'

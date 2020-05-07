@@ -1,6 +1,6 @@
 {
   "name": "checkin-1point3acres",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "一键签到一亩三分地",
   "main": "dist/index.js",
   "keywords": [

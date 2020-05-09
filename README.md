@@ -5,10 +5,16 @@
 
 一键签到一亩三分地
 
-## 如何使用
+## 安装
 
 ```bash
 brew install node # 需要 10.0 以上
 
 npm i -g checkin-1point3acres
+```
+
+## 使用
+
+```bash
+checkin
 ```
